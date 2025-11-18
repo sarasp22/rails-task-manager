@@ -1,0 +1,20 @@
+<div class="container">
+<h1>Tasks' List</h1>
+
+<div class="list">
+  <% @tasks.each do |task| %>
+  <div class="element">
+  <input type="checkbox" <%= "checked" if task.completed %>>
+    <%= link_to task.title, task_path(task) %>
+    <%= link_to "❌",
+    task_path(task),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+  <% end %>
+  </div>
+</div>
+
+<div class="button-51" id="add">
+ <%= link_to "Add a new task", new_task_path %>
+</div>
+
+</div>
